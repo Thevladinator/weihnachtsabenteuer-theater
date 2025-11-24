@@ -81,28 +81,8 @@
 
         .hero {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 80px 20px 60px;
             position: relative;
-        }
-
-        .poster-section {
-            text-align: center;
-            padding: 20px 20px 60px;
-            position: relative;
-        }
-
-        .poster-image {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            border: 5px solid rgba(255, 215, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .poster-image:hover {
-            transform: scale(1.02);
         }
 
         .star {
@@ -132,6 +112,10 @@
             margin-bottom: 20px;
             letter-spacing: 2px;
             line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 100%;
         }
 
         .subtitle {
@@ -249,6 +233,32 @@
             color: #ffe4b3;
         }
 
+        .cta-section {
+            text-align: center;
+            margin: 80px auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 25px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.6);
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -261,23 +271,6 @@
             line-height: 1.8;
         }
 
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: #ffd700;
-            font-size: 2rem;
-            margin: 0 15px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-
         @media (max-width: 768px) {
             .info-section {
                 padding: 30px 20px;
@@ -285,6 +278,11 @@
 
             .detail-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-button {
+                font-size: 1.4rem;
+                padding: 20px 40px;
             }
         }
     </style>
@@ -304,17 +302,42 @@
             <p class="subtitle">auf Ukrainisch</p>
         </section>
 
-        <section class="poster-section">
-            <img src="poster.jpg" alt="Weihnachtsabenteuer auf Ukrainisch Poster" class="poster-image">
-        </section>
-
         <section class="info-section">
             <h2>🎭 Über die Show 🎭</h2>
             <p class="about-text">
-                Erleben Sie ein magisches Weihnachtsabenteuer auf Ukrainisch! 
-                Eine zauberhafte Geschichte voller Musik, Lachen und Weihnachtsfreude, 
-                perfekt für die ganze Familie. Begleiten Sie unsere Charaktere auf ihrer 
-                festlichen Reise durch die Winterwunderwelt.
+                Vor Weihnachten erzählt der Märchenelf Storiuz die Geschichte von zwei kleinen Nachbarinnen – Bukletka und Bezladka.
+            </p>
+            <p class="about-text">
+                Bukletka liebt Ordnung und möchte, dass alles und jeder vollkommen ist. Dadurch wird sie nach und nach ganz allein.
+                Bezladka ist ihr völliges Gegenteil: Bei ihr herrschen Chaos, Unordnung und Durcheinander, weshalb alle vor ihr fliehen.
+            </p>
+            <p class="about-text">
+                Beide sind auf ihre Weise unglücklich und wissen nicht, wer sie ohne ihre „Maske" wirklich sind. Als die Mädchen einschlafen, beschließt Storiuz einzugreifen und ruft die Elfenhandwerkerin Kurduplyk, die beginnt, magisch zu helfen.
+            </p>
+            <p class="about-text">
+                In der nächsten Nacht ruft Storiuz die Elfen Kuz'ka und Buz'ka, um seinen Plan fortzuführen. Während Bukletka und Bezladka schlafen, tauschen die Elfen die Mädchen miteinander aus:
+            </p>
+            <p class="about-text">
+                <em>Bukletka wacht im Zimmer von Bezladka auf,<br>
+                Bezladka findet sich im Zimmer von Bukletka wieder.</em>
+            </p>
+            <p class="about-text">
+                Zwischen den beiden Räumen entsteht eine unsichtbare magische Wand, die niemand übertreten kann.
+            </p>
+            <p class="about-text">
+                Am Morgen erwachen die Mädchen in fremden Zimmern, sind verwirrt und geben einander die Schuld. Doch plötzlich ertönen seltsame, ein wenig unheimliche Geräusche. Aus Angst beginnen Bukletka und Bezladka zum ersten Mal gemeinsam zu handeln, um herauszufinden, wer oder was diese Geräusche verursacht.
+            </p>
+            <p class="about-text">
+                In dem Moment, in dem sie wirklich zusammenarbeiten, verschwindet die unsichtbare Wand und öffnet ihnen den Weg zueinander – und zu ihrem gegenseitigen Verständnis.
+            </p>
+            <p class="about-text">
+                Da erscheinen die Elfen — Blyskitka, Kuz'ka, Buz'ka, Kurduplyk, Siurpryzyk und Storiuz — und erklären, dass niemand an Weihnachten allein sein soll. Sie unterstützen die Mädchen und schenken ihnen Wärme und Gemeinschaft.
+            </p>
+            <p class="about-text">
+                Siurpryzyk schlägt vor, die Weihnachtsfee zu rufen — von ganzem Herzen und mit festem Wunsch. Die Fee erscheint und lehrt: Die Magie von Weihnachten entsteht aus Liebe, Vertrauen, Freundschaft und der Fähigkeit, einander anzunehmen.
+            </p>
+            <p class="about-text">
+                Am Ende erkennen Bukletka und Bezladka, dass sie verschieden, aber zusammen stärker sind. Und sie feiern zum ersten Mal Weihnachten im Kreis neuer Freunde.
             </p>
         </section>
 
@@ -341,8 +364,11 @@
                     <div class="detail-label">Dauer</div>
                     <div class="detail-value">ca. 30 Min.</div>
                 </div>
+
             </div>
         </section>
+
+
     </div>
 
     <footer>
@@ -350,11 +376,6 @@
             <p><strong>Kontakt:</strong></p>
             <p>khristina.vasylchuk@gmail.com</p>
             <p>+41 79 877 68 48</p>
-            <div class="social-links">
-                <a href="#" title="Facebook">📘</a>
-                <a href="#" title="Instagram">📷</a>
-                <a href="#" title="Email">✉️</a>
-            </div>
         </div>
     </footer>
 
