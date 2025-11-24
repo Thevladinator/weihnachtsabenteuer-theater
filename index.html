@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weihnachtsabenteuer auf Ukrainisch - Kindertheater</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0d5c4f 0%, #1a7a66 50%, #0d5c4f 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .pine-branches {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 150px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .branch-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(135deg, transparent 30%, #2d5f3f 30%, #2d5f3f 35%, transparent 35%);
+            opacity: 0.7;
+        }
+
+        .branch-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(225deg, transparent 30%, #2d5f3f 30%, #2d5f3f 35%, transparent 35%);
+            opacity: 0.7;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            position: relative;
+        }
+
+        .poster-section {
+            text-align: center;
+            padding: 20px 20px 60px;
+            position: relative;
+        }
+
+        .poster-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            border: 5px solid rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .poster-image:hover {
+            transform: scale(1.02);
+        }
+
+        .star {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .star::before {
+            content: '⭐';
+            font-size: 100px;
+            filter: drop-shadow(0 0 20px #ffd700);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-weight: bold;
+            color: #ffe4b3;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            color: #ffd700;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .tree-section {
+            text-align: center;
+            margin: 60px auto;
+            position: relative;
+        }
+
+        .tree {
+            width: 300px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .tree-layer {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 120px solid #2d5f3f;
+            margin: -20px auto;
+            position: relative;
+        }
+
+        .tree-layer:nth-child(2) {
+            border-left: 130px solid transparent;
+            border-right: 130px solid transparent;
+            border-bottom: 110px solid #357a4f;
+        }
+
+        .tree-layer:nth-child(3) {
+            border-left: 110px solid transparent;
+            border-right: 110px solid transparent;
+            border-bottom: 100px solid #3d8f5f;
+        }
+
+        .ornament {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            margin: 60px auto;
+            max-width: 900px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #ffd700;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .detail-label {
+            font-size: 1.1rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .detail-value {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin: 30px 0;
+            color: #ffe4b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #ffd700;
+            font-size: 2rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .info-section {
+                padding: 30px 20px;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snowflakes" id="snowflakes"></div>
+    
+    <div class="pine-branches">
+        <div class="branch-left"></div>
+        <div class="branch-right"></div>
+    </div>
+
+    <div class="container">
+        <section class="hero">
+            <div class="star"></div>
+            <h1>WEIHNACHTSABENTEUER</h1>
+            <p class="subtitle">auf Ukrainisch</p>
+        </section>
+
+        <section class="poster-section">
+            <img src="poster.jpg" alt="Weihnachtsabenteuer auf Ukrainisch Poster" class="poster-image">
+        </section>
+
+        <section class="info-section">
+            <h2>🎭 Über die Show 🎭</h2>
+            <p class="about-text">
+                Erleben Sie ein magisches Weihnachtsabenteuer auf Ukrainisch! 
+                Eine zauberhafte Geschichte voller Musik, Lachen und Weihnachtsfreude, 
+                perfekt für die ganze Familie. Begleiten Sie unsere Charaktere auf ihrer 
+                festlichen Reise durch die Winterwunderwelt.
+            </p>
+        </section>
+
+        <section class="info-section">
+            <h2>📅 Veranstaltungsdetails 📅</h2>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-label">Ort</div>
+                    <div class="detail-value">Vordorfgasse 4<br>3714 Frutigen</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🗓️</div>
+                    <div class="detail-label">Datum</div>
+                    <div class="detail-value">17. Dezember 2025</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🕐</div>
+                    <div class="detail-label">Zeit</div>
+                    <div class="detail-value">18:30 Uhr<br><small style="font-size: 0.9em;">Türöffnung: 18:00 Uhr</small></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">⏱️</div>
+                    <div class="detail-label">Dauer</div>
+                    <div class="detail-value">ca. 30 Min.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Kontakt:</strong></p>
+            <p>khristina.vasylchuk@gmail.com</p>
+            <p>+41 79 877 68 48</p>
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Email">✉️</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create snowflakes
+        const snowflakesContainer = document.getElementById('snowflakes');
+        const snowflakeSymbols = ['❄', '❅', '❆', '✨', '⭐'];
+        
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = (Math.random() * 3 + 7) + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            
+            snowflakesContainer.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+        
+        setInterval(createSnowflake, 300);
+        
+        // Create initial snowflakes
+        for(let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 200);
+        }
+    </script>
+</body>
+</html>
